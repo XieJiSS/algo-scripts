@@ -1,4 +1,4 @@
-import add from "add"
+import * as add from "add"
 
 function variance(nums: number[]): number {
     const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
