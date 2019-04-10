@@ -1,5 +1,3 @@
-"use strict";
-
 // see https://leetcode.com/problems/count-primes
 
 function generatePrime(max: number): number[] {

@@ -1,5 +1,3 @@
-"use strict";
-
 // see https://leetcode.com/problems/find-pivot-index
 
 function findPivot(arr: number[]):number {

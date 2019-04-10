@@ -1,5 +1,3 @@
-"use strict";
-
 // see https://www.luogu.org/problemnew/solution/P3383
 
 function checkIsPrime(num: number): boolean {
