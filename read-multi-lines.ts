@@ -1,20 +1,20 @@
-"use strict";
+'use strict';
 
-const readline = require('readline');
+import * as readline from 'readline';
 
 /**
  * @param {String} prompt 
  * @return {Promise<string>} A Promise that resolves with the result
  */
-const getInput = prompt => new Promise((resolve, reject) => {
-    const input = [];
+const getInput = (prompt: string): Promise<string> => new Promise((resolve, reject) => {
+    const input: string[] = [];
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout,
         prompt: prompt
     });
     rl.prompt();
-    rl.on('line', function (cmd) {
+    rl.on('line', function (cmd: string) {
         input.push(cmd);
     });
     rl.once('SIGINT', function () {

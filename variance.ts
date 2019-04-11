@@ -9,4 +9,4 @@ function variance(nums: number[]): number {
     return add(squareErrorArr) / nums.length;
 }
 
-export default variance;
+export = variance;

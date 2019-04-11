@@ -3,3 +3,7 @@ node_modules/
 */node_modules/
 .DS_Store
 */.DS_Store
+src/*.js
+src/*.d.ts
+dist/*.js
+dist/*.d.ts
