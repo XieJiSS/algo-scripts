@@ -16,7 +16,10 @@ const readdir  = promisify(fs.readdir);
  * @param {String[]} entries sub-directories
  * @returns {Promise<string[]>} all paths
  */
-async function dfs(parents: string, entries: string[]): Promise<string[]> {
+async function dfs(parents: string, entries?: string[]): Promise<string[]> {
+  if(!entries) {
+    entries = await readdir(parents);
+  }
   let result: string[] = [];
   for(let i = 0; i < entries.length; i++) {
     const subpath = path.join(parents, entries[i]);
