@@ -8,8 +8,8 @@
     "rm": "rm dist/*.js dist/*.d.ts 2>/dev/null || echo && rmdir dist/src/ 2>/dev/null || echo && rm src/*.js src/*.d.ts 2>/dev/null || echo",
     "compile": "tsc -d -m commonjs -t ES2018 --lib es2018 --alwaysStrict --outDir src/ *.ts",
     "transpile": "babel --copy-files -q -f src/*.js -d dist/ && mv dist/src/* dist/ && rmdir dist/src/ && cp src/*.d.ts dist/",
-    "addTypes": "node _scripts/addTypes.js",
-    "g": "npm run rm && npm run compile && npm run transpile && npm run addTypes"
+    "preprocess": "node _scripts/preprocess.js && cd dist && px --external-core ./index.js ./bundle.js",
+    "g": "npm run rm && npm run compile && npm run transpile && npm run preprocess"
   },
   "repository": {
     "type": "git",
