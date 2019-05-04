@@ -19,4 +19,4 @@ function generatePrime(max: number): number[] {
     return prime;
 }
 
-export = generatePrime;
+export default generatePrime;

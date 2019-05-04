@@ -22,7 +22,7 @@ function generateIndex(modules) {
   let bodyStr = '';
   for(let i = 0; i < modules.length; i++) {
     const moduleName = modules[i];
-    bodyStr += `const ${namify(moduleName)} = require("./${moduleName}.js");\n`;
+    bodyStr += `const ${namify(moduleName)} = require("./${moduleName}.js").default;\n`;
   }
   bodyStr += '\nmodule.exports = {\n';
   for(let i = 0; i < modules.length; i++) {

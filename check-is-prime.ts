@@ -16,4 +16,4 @@ function checkIsPrime(num: number): boolean {
     return true;
 }
 
-export = checkIsPrime;
+export default checkIsPrime;

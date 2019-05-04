@@ -15,4 +15,4 @@ function expectation(X: number[], P?: number[]): number {
     return expec;
 }
 
-export = expectation;
+export default expectation;

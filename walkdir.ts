@@ -36,4 +36,4 @@ async function dfs(parents: string, entries?: string[]): Promise<string[]> {
 
 // dfs(dir, subdir).then(p => console.log(p));
 
-export = dfs;
+export default dfs;

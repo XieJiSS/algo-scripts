@@ -27,4 +27,4 @@ const getInput = (prompt: string): Promise<string> => new Promise(resolve => {
     });
 });
 
-export = getInput;
+export default getInput;

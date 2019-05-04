@@ -12,4 +12,4 @@ function findPivot(arr: number[]):number {
     return -1;
 }
 
-export = findPivot;
+export default findPivot;
