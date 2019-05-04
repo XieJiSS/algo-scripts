@@ -44,4 +44,4 @@ function toIEEE754Double(v: number): number[] {
     return bytes;
 }
 
-module.exports = toIEEE754DoubleString;
+export default toIEEE754DoubleString;
