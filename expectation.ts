@@ -2,7 +2,7 @@ import * as add from "add"
 
 function expectation(X: number[], P?: number[]): number {
     if(!P) {
-        P = Array.from(new Array(X.length), () => 1);
+        P = Array.from(new Array(X.length), () => 1 / X.length);
     }
     if(P.length !== X.length) {
         throw new RangeError("If specified, P.length should equal to X.length");
