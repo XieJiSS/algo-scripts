@@ -5,11 +5,12 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rm": "rm dist/*.js dist/*.d.ts 2>/dev/null || echo && rmdir dist/src/ 2>/dev/null || echo && rm src/*.js src/*.d.ts 2>/dev/null || echo",
+    "rm": "rm dist/*.js 2>/dev/null || echo && rmdir dist/src/ 2>/dev/null || echo && rm src/*.js 2>/dev/null || echo",
     "compile": "tsc -m commonjs -t ES2018 --lib es2018 --alwaysStrict --outDir src/ *.ts",
     "transpile": "babel --copy-files -q -f src/*.js -d dist/ && mv dist/src/* dist/ && rmdir dist/src/",
-    "preprocess": "node _scripts/preprocess.js && cd dist && px --external-core ./index.js ./bundle.js",
-    "g": "npm run rm && npm run compile && npm run transpile && npm run preprocess"
+    "preprocess": "node _scripts/preprocess.js && cd dist && px -M --external-core ./index.js ./bundle.js",
+    "postprocess": "node _scripts/postprocess.js",
+    "g": "npm run rm && npm run compile && npm run transpile && npm run preprocess && npm run postprocess"
   },
   "repository": {
     "type": "git",

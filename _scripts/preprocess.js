@@ -11,8 +11,6 @@ const readdir   = promisify(fs.readdir);
 const readFile  = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const { writeFileSync } = fs;
-
 const mods = [];
 
 /**
@@ -78,5 +76,5 @@ dfs(dir, subdir).then(async p => {
       // await writeFile(p, `/// <reference path="${fname}.d.ts"/>${EOL}${code}`);
     }
   }));
-  writeFileSync(dir + '/index.js', generateIndex(mods));
+  await writeFile(dir + '/index.js', generateIndex(mods));
 });
