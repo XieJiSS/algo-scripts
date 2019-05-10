@@ -20,6 +20,9 @@ function rndChar() {
 }
 
 function encodeText(raw: string) {
+  if(/[\u0100-\uffff]/.test(raw)) {
+    throw new RangeError("Input should only contains ASCII strings!");
+  }
   const m = Math.max(Math.ceil(raw.length / 7), 2);
   const sliceAt = [0];
   if(raw.length <= 7) {
@@ -81,9 +84,6 @@ function encodeText(raw: string) {
   const dataArr: number[] = magicNums.concat(special).concat(cases);
   dataArr.unshift(dataArr.length);
   const encodeResult = dataArr.map(function (num: number) {
-    if(Number.isNaN(num)) {
-      throw new RangeError("Input out of range! Use encodeURIComponent to escape your input.");
-    }
     return num === 0 ? "" : num.toString(15);
   }).join("|");
   return encodeResult;
