@@ -8,7 +8,7 @@
     "rm": "rm dist/*.js 2>/dev/null || echo && rmdir dist/src/ 2>/dev/null || echo && rm src/*.js 2>/dev/null || echo",
     "compile": "tsc -m commonjs -t ES2018 --lib es2018 --alwaysStrict --outDir src/ *.ts",
     "compress": "npx uglifyjs ./dist/bundle.js --ecma 8 -o ./dist/bundle.min.js",
-    "transpile": "babel --copy-files -q -f src/*.js -d dist/ && mv dist/src/* dist/ && rmdir dist/src/",
+    "transpile": "npx babel --copy-files -q -f src/*.js -d dist/ && mv dist/src/* dist/ && rmdir dist/src/",
     "preprocess": "node _scripts/preprocess.js && cd dist && px -M --external-core ./index.js ./bundle.js",
     "postprocess": "node _scripts/postprocess.js",
     "g": "npm run rm && npm run compile && npm run transpile && npm run preprocess && npm run postprocess && npm run compress"
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^11.13.4",
+    "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1"
   }
 }
